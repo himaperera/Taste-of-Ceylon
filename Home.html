@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taste of Ceylon - Authentic Sri Lankan Recipes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Enhanced CSS with improvements */
+        :root {
+            --primary: #b8860b;
+            --secondary: #daa520;
+            --accents: #ffd700;
+            --dark: #000000;
+            --light: #fffaf0;
+            --text: #8b0000;
+            --transition: all 0.3s ease;
+        }
+        
+        /* Enhanced Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/healthy-lunch-meal-with-cooked-beef-curry-generated-by-ai.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(184, 134, 11, 0.2), transparent);
+            z-index: 1;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero h1 {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        }
+        
+        .hero p {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.7s;
+            z-index: -1;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        /* Enhanced Video Section */
+        .video-section {
+            display: flex;
+            padding: 80px 0;
+            gap: 50px;
+            align-items: center;
+            position: relative;
+        }
+        
+        .video-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,250,240,0.9) 0%, rgba(255,253,248,0.9) 100%);
+            z-index: -1;
+        }
+        
+        .video-container {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: var(--transition);
+        }
+        
+        .video-container:hover {
+            transform: perspective(1000px) rotateY(0deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .video-container video {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            transition: transform 0.5s ease;
+        }
+        
+        .video-container:hover video {
+            transform: scale(1.05);
+        }
+        
+        .video-text {
+            flex: 1;
+            padding-left: 20px;
+        }
+        
+        .video-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            color: var(--text);
+            position: relative;
+        }
+        
+        .video-text h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        .video-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--dark);
+            margin-bottom: 25px;
+        }
+        
+        /* Enhanced Text Animation */
+        .animated-text {
+            overflow: hidden;
+            height: 70px;
+            margin-bottom: 20px;
+        }
+        
+        .word {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: popUp 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+        }
+        
+        .word:nth-child(1) { animation-delay: 0.1s; }
+        .word:nth-child(2) { animation-delay: 0.3s; }
+        .word:nth-child(3) { animation-delay: 0.5s; }
+        .word:nth-child(4) { animation-delay: 0.7s; }
+        
+        @keyframes popUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        /* Enhanced Video overlay animation */
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(184, 134, 11, 0.1), rgba(218, 165, 32, 0.1));
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            border-radius: 15px;
+            pointer-events: none;
+        }
+        
+        .video-container:hover .video-overlay {
+            opacity: 1;
+        }
+        
+        /* Enhanced Featured Recipes */
+        .section-title {
+            text-align: center;
+            margin: 80px 0 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            color: #777;
+            max-width: 700px;
+            margin: 25px auto 0;
+            font-size: 1.1rem;
+        }
+        
+        .recipes {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+        
+        .recipe-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .recipe-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.1) 100%);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 1;
+            pointer-events: none;
+        }
+        
+        .recipe-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .recipe-card:hover::before {
+            opacity: 1;
+        }
+        
+        .recipe-img {
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .recipe-img::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background: linear-gradient(transparent, rgba(0,0,0,0.3));
+            pointer-events: none;
+        }
+        
+        .recipe-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+        
+        .recipe-card:hover .recipe-img img {
+            transform: scale(1.15);
+        }
+        
+        .recipe-content {
+            padding: 25px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .recipe-content h3 {
+            margin-bottom: 12px;
+            color: var(--dark);
+            font-size: 1.4rem;
+        }
+        
+        .recipe-meta {
+            display: flex;
+            justify-content: space-between;
+            color: #777;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .recipe-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .view-recipe {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 10px;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .view-recipe::after {
+            content: '→';
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+        
+        .view-recipe:hover {
+            color: var(--text);
+        }
+        
+        .view-recipe:hover::after {
+            transform: translateX(5px);
+        }
+        
+        /* Enhanced Newsletter */
+        .newsletter {
+            background: linear-gradient(135deg, var(--dark) 0%, #2c2c2c 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .newsletter::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+        
+        .newsletter h2 {
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: #ddd;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            outline: none;
+            font-size: 1rem;
+        }
+        
+        .newsletter-form button {
+            padding: 0 30px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: white;
+            border: none;
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .newsletter-form button:hover {
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            box-shadow: 0 5px 15px rgba(218, 165, 32, 0.4);
+        }
+        
+        /* Animation keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        /* Floating animation for recipe cards */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        .recipe-card:nth-child(1) {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .recipe-card:nth-child(2) {
+            animation: float 6s ease-in-out infinite 2s;
+        }
+        
+        .recipe-card:nth-child(3) {
+            animation: float 6s ease-in-out infinite 4s;
+        }
+        
+        /* Responsive improvements */
+        @media (max-width: 968px) {
+            .video-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .video-text {
+                padding-left: 0;
+            }
+            
+            .video-text h2::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .video-container {
+                transform: none;
+            }
+            
+            .video-container:hover {
+                transform: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .video-text h2 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Social Media Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-bar-left">
+                    <span>📧 hello@tasteofceylon.com</span>
+                    <span>📞 +94 76 123 4567</span>
+                </div>
+                <div class="top-social-links">
+                    <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" title="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo-container">
+                    <img src="images/logocolerd-removebg-preview.png" class="image" alt="logo">
+                    <a href="Home.html" class="logo">Taste of <br><span>Ceylon</span></a>
+                </div>
+                
+                <div class="nav-links">
+                    <a href="Home.html" style="color: var(--primary);">Home</a>
+                    
+                    <div class="dropdown">
+                        <a href="dashobard.html">Recipes <i class="fas fa-chevron-down"></i></a>
+                    </div>
+                    
+                    <a href="cookingtips.html">Cooking Tips</a>
+                    <a href="SLAbout.html">About Ceylon</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                
+                <div class="search-bar">
+                    <input type="text" placeholder="Search recipes...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Discover Authentic Sri Lankan Flavors</h1>
+            <p>Explore traditional recipes passed down through generations, from spicy curries to sweet treats</p>
+            <a href="dashobard.html" class="btn">Explore Recipes</a>
+        </div>
+    </section>
+
+    <!-- Video Section with Text and Animation -->
+    <section class="container video-section">
+        <div class="video-container">
+            <video autoplay muted loop playsinline>
+                <source src="images/food.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="video-overlay"></div>
+        </div>
+        <div class="video-text">
+            <h2 class="animated-text">
+                <span class="word">Authentic</span>
+                <span class="word">Sri</span>
+                <span class="word">Lankan</span>
+                <span class="word">Recipes</span>
+            </h2>
+            <p>Discover the soul of Sri Lanka through its rich and vibrant cuisine — a delightful fusion of tradition, spice, and cultural heritage. From the aroma of freshly ground spices to the comforting taste of time-honored family recipes, each dish tells a story passed down through generations. At Taste of Ceylon, we bring you a curated collection of authentic Sri Lankan recipes, crafted with love and deep-rooted history. Whether it's a simple home-cooked curry or a festive dish wrapped in banana leaf, you'll find flavors that warm the heart and nourish the soul.</p>
+            <p><b>🍛 Let your taste buds travel to the island of Ceylon — one recipe at a time.</b></p>
+            <a href="dashobard.html" class="btn">Discover More Recipes</a>
+        </div>
+    </section>
+    
+    <!-- Featured Recipes -->
+    <div class="container">
+        <div class="section-title">
+            <h2>Our Most Popular Recipes</h2>
+            <p>Try these popular Sri Lankan dishes loved by home cooks</p>
+        </div>
+        
+        <div class="recipes">
+            <!-- Recipe 1 -->
+            <div class="recipe-card">
+                <div class="recipe-img">
+                    <img src="images/Srilankan Chicken curry.jpg" alt="Chicken Curry">
+                </div>
+                <div class="recipe-content">
+                    <h3>Sri Lankan Chicken Curry</h3>
+                    <div class="recipe-meta">
+                        <span><i class="fas fa-clock"></i> 45 mins</span>
+                        <span><i class="fas fa-utensils"></i> Serves 4</span>
+                    </div>
+                    <p>Aromatic chicken cooked in a blend of roasted spices and coconut milk</p>
+                    <a href="chickencurry.html" class="view-recipe">View Recipe</a>
+                </div>
+            </div>
+            
+            <!-- Recipe 2 -->
+            <div class="recipe-card">
+                <div class="recipe-img">
+                    <img src="images/Egghoppers.jpg" alt="Hoppers">
+                </div>
+                <div class="recipe-content">
+                    <h3>Egg Hoppers (Appa)</h3>
+                    <div class="recipe-meta">
+                        <span><i class="fas fa-clock"></i> 30 mins</span>
+                        <span><i class="fas fa-utensils"></i> Serves 2</span>
+                    </div>
+                    <p>Crispy bowl-shaped pancakes with a soft egg center, perfect for breakfast</p>
+                    <a href="hoppers.html" class="view-recipe">View Recipe</a>
+                </div>
+            </div>
+            
+            <!-- Recipe 3 -->
+            <div class="recipe-card">
+                <div class="recipe-img">
+                    <img src="images/kottu.jpg" alt="Kottu Roti">
+                </div>
+                <div class="recipe-content">
+                    <h3>Chicken Kottu</h3>
+                    <div class="recipe-meta">
+                        <span><i class="fas fa-clock"></i> 40 mins</span>
+                        <span><i class="fas fa-utensils"></i> Serves 3</span>
+                    </div>
+                    <p>Chopped roti stir-fried with vegetables, eggs, and spicy chicken</p>
+                    <a href="koththuroti.html" class="view-recipe">View Recipe</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Join Our Culinary Journey</h2>
+            <p>Subscribe to receive weekly recipes, cooking tips, and stories from Sri Lankan kitchens</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your email address">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Taste of Ceylon</h3>
+                    <p>Preserving and sharing the rich culinary heritage of Sri Lanka through authentic recipes.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Recipes</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Recipe Categories</h3>
+                    <ul>
+                        <li><a href="#">Rice & Curry</a></li>
+                        <li><a href="#">Street Food</a></li>
+                        <li><a href="#">Seafood</a></li>
+                        <li><a href="#">Festival Foods</a></li>
+                        <li><a href="#">Desserts</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> hello@tasteofceylon.com</li>
+                        <li><i class="fas fa-phone"></i> +94 76 123 4567</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Colombo, Sri Lanka</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Taste of Ceylon. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
