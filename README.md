@@ -5,6 +5,13 @@
 
 A visually rich, static web application designed to showcase the culinary heritage of Sri Lanka. This project focuses on high-quality UI/UX design using pure frontend technologies.
 
+## 🔗 Live Site
+
+👉
+[https://himaperera.github.io/Taste-of-Ceylon/](https://himaperera.github.io/Taste-of-Ceylon/)**
+
+---
+
 ## 📸 Preview
 <p align="center">
   <img src="images/Screenshot%20(82).png" width="800" alt="Taste of Ceylon Home Page">
