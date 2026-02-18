@@ -8,7 +8,7 @@ A visually rich, static web application designed to showcase the culinary herita
 ## 🔗 Live Site
 
 👉
-[https://himaperera.github.io/Taste-of-Ceylon/](https://himaperera.github.io/Taste-of-Ceylon/)**
+[https://himaperera.github.io/Taste-of-Ceylon/](https://himaperera.github.io/Taste-of-Ceylon/)
 
 ---
 
